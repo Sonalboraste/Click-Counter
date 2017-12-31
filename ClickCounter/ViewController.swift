@@ -8,18 +8,53 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    
+    @IBOutlet var label : UILabel!
+    
+    @IBOutlet weak var label2: UILabel!
+    
+    var count = 0
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func incrementCount()
+    {
+        self.count = self.count + 1
+        
+        self.label.text = String(count)
+        
+        self.label2.text = label.text
     }
+    
+    @IBAction func decrementCount(_ sender: Any)
+    {
+        self.count = self.count - 1
+        
+        self.label.text = String(count)
+        
+        self.label2.text = label.text
 
-
+    }
+    
+    @IBAction func toggleBackgroundColor()
+    {
+        
+        if self.view.backgroundColor==UIColor.blue
+        {
+            self.view.backgroundColor = UIColor.green
+        }
+        else
+        {
+            self.view.backgroundColor = UIColor.blue
+        }
+    }
+    
 }
 
